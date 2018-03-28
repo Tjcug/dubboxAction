@@ -24,7 +24,14 @@
     <dubbo:annotation package="com.basic.dubbo.service"/>
 
     <!--使用dubbo协议在20880端口暴露服务-->
-    <dubbo:protocol name="dubbo" port="20880"/>
+    <!--<dubbo:protocol name="dubbo" port="20880"/>-->
+
+    <!--Kryo实现序列化 serialization="kryo" optimizer="com.basic.dubbo.serialize.SerialziationOptimizerImpl"-->
+    <dubbo:protocol name="dubbo" port="20880" serialization="kryo" optimizer="com.basic.dubbo.serialize.SerialziationOptimizerImpl"/>
+
+    <!--分别使用kryo序列化机制和fst序列化机制-->
+    <!--<dubbo:protocol name="dubbo" port="20880" serialization="kryo"/>-->
+    <!--<dubbo:protocol name="dubbo" port="20880" serialization="fst"/>-->
 
     <!--定义dubbo Rest接口 contextpath全局Path-->
     <dubbo:protocol name="rest" server="tomcat" port="8888" contextpath="provider" accepts="500"/>

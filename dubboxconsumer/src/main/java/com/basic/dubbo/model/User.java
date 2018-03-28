@@ -13,7 +13,7 @@ import java.io.Serializable;
  * Created by mastertj on 2018/3/27.
  */
 @XmlRootElement
-public class User implements Serializable{
+public class User {
     @NotNull
     private String id;
 

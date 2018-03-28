@@ -6,14 +6,13 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
  * locate com.basic.com.basic.dubbo.model
  * Created by mastertj on 2018/3/27.
  */
 @XmlRootElement
-public class User implements Serializable{
+public class User{
     @NotNull
     private String id;
 

@@ -24,14 +24,17 @@
     <dubbo:annotation package="com.basic.dubbo.service"/>
 
     <!--使用dubbo协议在20880端口暴露服务-->
-    <dubbo:protocol name="dubbo" port="20890"/>
+    <!--<dubbo:protocol name="dubbo" port="20890"/>-->
+
+    <!--Kryo实现序列化 serialization="kryo" optimizer="com.basic.dubbo.serialize.SerialziationOptimizerImpl"-->
+    <dubbo:protocol name="dubbo" port="20880" serialization="kryo" optimizer="com.basic.dubbo.serialize.SerialziationOptimizerImpl"/>
 
     <!--配置dubbo线程模型-->
     <!--<dubbo:protocol name="dubbo" port="20890" dispatcher="all" threadpool="fixed" threads="10" />-->
 
     <dubbo:reference interface="com.basic.dubbo.service.SampleService" id="sampleService" check="false"/>
 
-    <dubbo:reference interface="com.basic.dubbo.service.UserService" id="userService" protocol="rest,dubbo" check="false"/>
+    <dubbo:reference interface="com.basic.dubbo.service.UserService" id="userService" protocol="dubbo" check="false"/>
 
     <!-- 加载配置文件，支持注解的方法 -->
     <bean id="prop" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
